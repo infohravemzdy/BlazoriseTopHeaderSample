@@ -1,0 +1,62 @@
+﻿@namespace BlazoriseTopHeaderSample.Shared
+
+@using BlazoriseTopHeaderSample.Shared.Period
+
+<Bar Mode="BarMode.Horizontal" Breakpoint="Breakpoint.Desktop" 
+     Background="Background.Info" ThemeContrast="ThemeContrast.Light">
+    <BarBrand>                
+        <BarItem>
+            <BarLink To="">
+                <BarIcon IconName="IconName.Dashboard" />
+                Blazorise Demo
+            </BarLink>
+        </BarItem>
+    </BarBrand>
+    <BarMenu>
+        <BarStart>
+            <BarItem>
+                <BarLink To="https://blazorise.com/">Home</BarLink>
+            </BarItem>
+        </BarStart>
+        <BarEnd Padding="Padding.Is2.OnX">
+            <BarItem>
+                <BarDropdown RightAligned>
+                    <BarDropdownToggle><Icon Name="IconName.Clock" Padding="Padding.Is2.OnX"/> Period</BarDropdownToggle>
+                    <BarDropdownMenu Style="padding: 15px; min-width:150px;">
+                        @foreach ( var periodInfo in Periods )
+                        {
+                            <BarDropdownItem @key="@periodInfo.Name" Clicked="@(()=>SelectPeriod(periodInfo.Code))">
+                                @periodInfo.Name
+                            </BarDropdownItem>
+                        }
+                    </BarDropdownMenu>
+                </BarDropdown>
+            </BarItem>
+        </BarEnd>
+    </BarMenu>
+</Bar>
+
+@code {
+    protected override async Task OnInitializedAsync()
+    {
+        await SelectPeriod(202201);
+
+        await base.OnInitializedAsync();
+    }
+
+    IList<PeriodInfo> Periods = new List<PeriodInfo>
+    {
+        new PeriodInfo(202201),
+        new PeriodInfo(202202),
+        new PeriodInfo(202203),
+    };
+
+    PeriodInfo? currentPeriod { get; set; }
+
+    Task SelectPeriod(Int32 periodCode)
+    {
+        currentPeriod = Periods.FirstOrDefault(x => x.Code == periodCode);
+
+        return Task.CompletedTask;
+    }
+}

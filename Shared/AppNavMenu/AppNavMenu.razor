@@ -1,0 +1,44 @@
+﻿@namespace BlazoriseTopHeaderSample.Shared
+
+<Bar Breakpoint="Breakpoint.Desktop" 
+    Mode="BarMode.VerticalInline" CollapseMode="BarCollapseMode.Small"
+    Background="Background.Primary" ThemeContrast="ThemeContrast.Light">
+    <BarToggler Display="Display.InlineFlex" />
+    <BarBrand Background="Background.Warning" >
+        <BarItem>
+            <BarLink To="/">
+                <BarIcon IconName="IconName.Dashboard" />
+                Blazorise
+            </BarLink>
+        </BarItem>
+    </BarBrand>
+    <BarMenu>
+        <BarStart>
+            <BarItem>
+                <BarLink To="/" Title="Home">
+                    <BarIcon IconName="IconName.Home" />
+                    Home
+                </BarLink>
+            </BarItem>
+            <BarItem>
+                <BarLink To="/dashboard">
+                    <BarIcon IconName="IconName.Dashboard" />
+                    Dashboard
+                </BarLink>
+            </BarItem>
+            <BarItem>
+                <BarLink To="/email" Title="Email">
+                    <BarIcon IconName="IconName.Mail" />
+                    Email
+                </BarLink>
+            </BarItem>
+            <BarItem>
+                <BarLink To="/apps" Title="Apps">
+                    <BarIcon IconName="IconName.Smartphone" />
+                    Apps
+                </BarLink>
+            </BarItem>
+        </BarStart>
+    </BarMenu>
+</Bar>
+
