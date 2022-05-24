@@ -2,10 +2,11 @@
 
 This is Blazorise Layout with Top Header
 
-Theme is modified in App.razor to have BarOptions.HorizontalHeight = "28px"
+Theme is modified in App.razor to have BarOptions.HorizontalHeight = "52px"
 
 There is weird behaviour that I see in this sample.
 
-- SideMenu (AppNavMenu.razor) is sliding down when Sidebar is minimalized
-- ToggleBar is not visible, even if there is Display attribute modification set to Display.InlineFlex
-- Height of horizontal bar is not the same as height of Brand component in vertical bar, so opening and closing dont appears esthetical and theme settings not playing any role
+- Without change in theme Side Bar Menu shows hidden under top header
+- With change in theme BarOptions.HorizontalHeight = "52px" Side Bar Menu shows as I wanted to
+- BarIcon of Brand Component is sticked to title "Blazorise Demo"
+- BarToggler shoud be modified with Display attribute otherwise is not visible on desktop
